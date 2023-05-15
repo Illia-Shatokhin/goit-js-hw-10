@@ -28,19 +28,22 @@ function inputListener(e) {
         );
       } else if (countrys.length === 1) {
         const languages = Object.values(countrys[0].languages).join(', ');
+        const country = countrys[0];
         renderCountryInfo(
           countryInfo,
-          countrys[0].flags.svg,
-          countrys[0].name.official,
-          countrys[0].capital,
-          countrys[0].population,
+          country.flags.svg,
+          country.name.official,
+          country.capital,
+          country.population,
           languages
         );
-      } else {
+      } else if (countrys.length > 1 && countrys.length <= 10) {
         countrys.forEach(country => {
           renderListItem(countryList, country.flags.svg, country.name.official);
         });
+      } else {
+        Notify.failure('Oops, there is no country with that name');
       }
     })
-    .catch(error => Notify.failure('Oops, there is no country with that name'));
+    .catch(err => console.log(err));
 }

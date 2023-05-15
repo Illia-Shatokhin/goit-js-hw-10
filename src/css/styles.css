@@ -23,7 +23,7 @@ img {
   max-width: 100%;
   height: auto;
 }
-li {
+.country-list-item {
   list-style: none;
   margin-left: 0;
   padding-left: 0;
@@ -31,11 +31,11 @@ li {
   gap: 10px;
 }
 
-li + li {
+.country-list-item + .country-list-item {
   margin-top: 10px;
 }
 
-ul {
+.country-list {
   padding-left: 0;
 }
 .wrap {
